@@ -1,0 +1,59 @@
+﻿<Window x:Class="ResourcesHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResourcesHelper"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="840" Height="480">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="3,3,0,3"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3,3,0,3"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox Name="filePath" 
+                 ToolTip="Resource" />
+        <Button Width="100" 
+                HorizontalAlignment="Right" 
+                Click="button1_Click" 
+                Grid.Row="1">Browse</Button>
+        
+        <TextBox Name="folderPath" 
+                 Grid.Row="2" 
+                 ToolTip="Search Folder"/>
+        
+        <Button Width="100" 
+                Click="button2_Click" 
+                HorizontalAlignment="Right" 
+                Grid.Row="3">Browse</Button>
+        
+        <Button Width="100" 
+                Click="Start_Click" 
+                HorizontalAlignment="Center" 
+                Grid.Row="4">Start</Button>
+        
+        <TextBox Name="textBox" 
+                 AcceptsReturn="True" 
+                 Grid.Row="5" />
+        <TextBox Name="textBoxKeys" 
+                 AcceptsReturn="True" 
+                 Grid.Row="6" />
+        <TextBox Name="textBoxValues" 
+                 AcceptsReturn="True" 
+                 Grid.Row="7" />
+    </Grid>
+</Window>
