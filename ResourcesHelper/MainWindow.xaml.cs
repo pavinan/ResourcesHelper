@@ -28,7 +28,7 @@ namespace ResourcesHelper
         public MainWindow()
         {
             InitializeComponent();
-        }        
+        }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
@@ -48,11 +48,11 @@ namespace ResourcesHelper
                 dialog.ShowNewFolderButton = false;
 
                 var result = dialog.ShowDialog();
-                
+
                 if (result == System.Windows.Forms.DialogResult.OK)
                 {
                     var path = dialog.SelectedPath;
-                    folderPath.Text += ";"+path;
+                    folderPath.Text += ";" + path;
 
                     folderPath.Text = folderPath.Text.TrimStart(';');
                 }
@@ -92,7 +92,7 @@ namespace ResourcesHelper
                 var list = Directory.GetFiles(item, "*.cs");
                 files.AddRange(list);
             }
-            
+
 
             foreach (var item in resourceElements)
             {
@@ -104,7 +104,8 @@ namespace ResourcesHelper
 
                     foreach (var line in lines)
                     {
-                        if (!Regex.IsMatch(line, "^\\s*//") && line.Contains("GlobalMessages." + item.Key))
+                        if (!Regex.IsMatch(line, "^\\s*//")
+                            && line.Contains(System.IO.Path.GetFileNameWithoutExtension(filePath.Text) + "." + item.Key))
                         {
                             isUsed = true;
                             textBoxKeys.AppendText(item.Key + "\r\n");
